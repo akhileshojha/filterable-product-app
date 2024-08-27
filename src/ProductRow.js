@@ -1,6 +1,8 @@
 import React from "react";
 import { Tr, Td, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
+const MotionTr = motion(Tr);
 /**
  * Renders a table row representing a product.
  *
@@ -19,10 +21,14 @@ function ProductRow({ product }) {
   );
 
   return (
-    <Tr>
+    <MotionTr
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Td>{name}</Td>
       <Td>{product.price}</Td>
-    </Tr>
+    </MotionTr>
   );
 }
 

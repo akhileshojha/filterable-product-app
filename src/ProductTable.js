@@ -2,6 +2,9 @@ import React from "react";
 import { Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
+import { motion } from "framer-motion";
+
+const MotionTable = motion(Table);
 
 /**
  * Renders a table of products.
@@ -35,7 +38,12 @@ function ProductTable({ products, filterText, inStockOnly }) {
   });
 
   return (
-    <Table variant="simple">
+    <MotionTable
+      variant="simple"
+      initial={{ y: 20 }}
+      animate={{ y: 0 }}
+      transition={{ ease: "easeOut", duration: 2 }}
+    >
       <Thead>
         <Tr>
           <Th>Name</Th>
@@ -43,7 +51,7 @@ function ProductTable({ products, filterText, inStockOnly }) {
         </Tr>
       </Thead>
       <Tbody>{rows}</Tbody>
-    </Table>
+    </MotionTable>
   );
 }
 

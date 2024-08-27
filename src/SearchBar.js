@@ -1,5 +1,8 @@
 import React from 'react';
 import { Box, Input, Checkbox, FormControl, FormLabel } from '@chakra-ui/react';
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 /**
  * A search bar for filtering products.
@@ -12,7 +15,7 @@ import { Box, Input, Checkbox, FormControl, FormLabel } from '@chakra-ui/react';
  */
 function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
   return (
-    <Box mb={4}>
+    <MotionBox mb={4} whileFocus={{ scale: 1.05 }}>
       <FormControl>
         <Input
           placeholder="Search..."
@@ -27,7 +30,7 @@ function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyC
           Only show products in stock
         </Checkbox>
       </FormControl>
-    </Box>
+    </MotionBox>
   );
 }
 
