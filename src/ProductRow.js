@@ -1,4 +1,5 @@
 import React from "react";
+import { Tr, Td, Text } from "@chakra-ui/react";
 
 /**
  * Renders a table row representing a product.
@@ -14,14 +15,14 @@ function ProductRow({ product }) {
   const name = product.stocked ? (
     product.name
   ) : (
-    <span style={{ color: "red" }}>{product.name}</span>
+    <Text color="red.500">{product.name}</Text>
   );
 
   return (
-    <tr>
-      <td>{name}</td>
-      <td>{product.price}</td>
-    </tr>
+    <Tr>
+      <Td>{name}</Td>
+      <Td>{product.price}</Td>
+    </Tr>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
@@ -34,15 +35,15 @@ function ProductTable({ products, filterText, inStockOnly }) {
   });
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
+    <Table variant="simple">
+      <Thead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Price</Th>
+        </Tr>
+      </Thead>
+      <Tbody>{rows}</Tbody>
+    </Table>
   );
 }
 

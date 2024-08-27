@@ -1,4 +1,5 @@
 import React from "react";
+import { Box } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilterText, setInStockOnly } from "./actions";
 import SearchBar from "./SearchBar";
@@ -16,7 +17,6 @@ function FilterableProductTable({ products }) {
   const inStockOnly = useSelector((state) => state.inStockOnly);
   const dispatch = useDispatch();
 
-
   /**
    * Handles changes to the filter text by dispatching a setFilterText action
    * with the new text.
@@ -27,7 +27,6 @@ function FilterableProductTable({ products }) {
   const handleFilterTextChange = (text) => {
     dispatch(setFilterText(text));
   };
-
 
   /**
    * Handles changes to the "in stock only" checkbox by dispatching a
@@ -41,7 +40,7 @@ function FilterableProductTable({ products }) {
   };
 
   return (
-    <div>
+    <Box p={5} maxW="600px" mx="auto">
       <SearchBar
         filterText={filterText}
         inStockOnly={inStockOnly}
@@ -53,7 +52,7 @@ function FilterableProductTable({ products }) {
         filterText={filterText}
         inStockOnly={inStockOnly}
       />
-    </div>
+    </Box>
   );
 }
 

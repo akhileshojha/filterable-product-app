@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box, Input, Checkbox, FormControl, FormLabel } from '@chakra-ui/react';
 
 /**
  * A search bar for filtering products.
@@ -11,23 +12,22 @@ import React from 'react';
  */
 function SearchBar({ filterText, inStockOnly, onFilterTextChange, onInStockOnlyChange }) {
   return (
-    <form>
-      <input
-        type="text"
-        value={filterText}
-        placeholder="Search..."
-        onChange={(e) => onFilterTextChange(e.target.value)}
-      />
-      <label>
-        <input
-          type="checkbox"
-          checked={inStockOnly}
-          onChange={(e) => onInStockOnlyChange(e.target.checked)}
+    <Box mb={4}>
+      <FormControl>
+        <Input
+          placeholder="Search..."
+          value={filterText}
+          onChange={(e) => onFilterTextChange(e.target.value)}
+          mb={2}
         />
-        {' '}
-        Only show products in stock
-      </label>
-    </form>
+        <Checkbox
+          isChecked={inStockOnly}
+          onChange={(e) => onInStockOnlyChange(e.target.checked)}
+        >
+          Only show products in stock
+        </Checkbox>
+      </FormControl>
+    </Box>
   );
 }
 

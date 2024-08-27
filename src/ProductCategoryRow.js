@@ -1,4 +1,5 @@
 import React from "react";
+import { Tr, Th } from "@chakra-ui/react";
 
 /**
  * Renders a table row representing a product category.
@@ -9,9 +10,9 @@ import React from "react";
  */
 function ProductCategoryRow({ category }) {
   return (
-    <tr>
-      <th colSpan="2">{category}</th>
-    </tr>
+    <Tr>
+      <Th colSpan="2" textAlign="left" bg ="gray.200">{category}</Th>
+    </Tr>
   );
 }
 

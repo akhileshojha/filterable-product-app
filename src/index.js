@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ChakraProvider } from '@chakra-ui/react';
 import { Provider } from "react-redux";
 import store from "./store";
 import FilterableProductTable from "./FilterableProductTable";
@@ -18,7 +19,9 @@ const PRODUCTS = [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <FilterableProductTable products={PRODUCTS} />
+    <ChakraProvider>
+      <FilterableProductTable products={PRODUCTS} />
+    </ChakraProvider>
   </Provider>
 );
 
